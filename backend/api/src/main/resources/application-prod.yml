@@ -1,0 +1,22 @@
+# Production profile
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+logging:
+  level:
+    root: INFO
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+# Production-specific actuator exposure should be restricted via network or security
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

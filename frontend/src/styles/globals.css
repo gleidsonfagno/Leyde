@@ -1,0 +1,11 @@
+/* Tailwind base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles (placeholders) */
+html, body, #__next {
+  height: 100%;
+}
+
+/* TODO: Import Design System tokens and overrides here when available */

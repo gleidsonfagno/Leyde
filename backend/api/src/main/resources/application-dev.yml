@@ -1,0 +1,15 @@
+# Development profile
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/leyde_dev
+    username: leyde_dev
+    password: leyde_dev
+
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update

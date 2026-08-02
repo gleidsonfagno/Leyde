@@ -1,0 +1,15 @@
+# Test profile
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/leyde_test
+    username: leyde_test
+    password: leyde_test
+
+logging:
+  level:
+    root: INFO
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
