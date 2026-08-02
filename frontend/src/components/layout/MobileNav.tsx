@@ -16,9 +16,9 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
           </button>
         </div>
         <nav className="flex flex-col gap-2">
-          <Link href="/products"><a className="px-2 py-2 rounded hover:bg-gray-100">Produtos</a></Link>
-          <Link href="/categories"><a className="px-2 py-2 rounded hover:bg-gray-100">Categorias</a></Link>
-          <Link href="/brands"><a className="px-2 py-2 rounded hover:bg-gray-100">Marcas</a></Link>
+          <Link href="/products" className="px-2 py-2 rounded hover:bg-gray-100">Produtos</Link>
+          <Link href="/categories" className="px-2 py-2 rounded hover:bg-gray-100">Categorias</Link>
+          <Link href="/brands" className="px-2 py-2 rounded hover:bg-gray-100">Marcas</Link>
         </nav>
       </div>
     </div>

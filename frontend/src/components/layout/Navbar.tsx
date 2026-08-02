@@ -8,9 +8,7 @@ export default function Navbar() {
     <nav className="w-full bg-white dark:bg-slate-900 border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/">
-            <a className="text-xl font-semibold">Leyde</a>
-          </Link>
+          <Link href="/" className="text-xl font-semibold">Leyde</Link>
         </div>
 
         <div className="flex-1 px-4 hidden md:block">
@@ -29,7 +27,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Link href="/cart"><a className="px-3 py-2 rounded-md hover:bg-gray-100">Cart</a></Link>
+            <Link href="/cart" className="px-3 py-2 rounded-md hover:bg-gray-100">Cart</Link>
           </div>
         </div>
       </div>
