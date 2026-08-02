@@ -1,5 +1,9 @@
 import './styles/globals.css';
 import type { ReactNode } from 'react';
+import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
+import { ThemeProvider } from '../providers/ThemeProvider';
+import { ToastProvider } from '../components/ui/ToastProvider';
 
 export const metadata = {
   title: 'Leyde',
@@ -10,8 +14,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>
-        {/* Root layout: keep minimal. Use Design System components from src/components when available. */}
-        {children}
+        <ThemeProvider>
+          <ToastProvider>
+            <Navbar />
+            <main className="min-h-[60vh]">{children}</main>
+            <Footer />
+          </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
