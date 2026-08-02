@@ -11,6 +11,8 @@ export default function ProductGrid({ products }: Props) {
       {products.map((p) => (
         <ProductCard
           key={p.id}
+          id={p.id}
+          href={`/products/${p.id}`}
           title={p.title}
           image={p.images && p.images.length ? p.images[0].url : undefined}
           price={p.price}

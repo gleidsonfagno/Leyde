@@ -2,7 +2,8 @@ import React from 'react';
 import { fetchAdminProductsServer } from './productAdminApi';
 import DataTable from '../../components/admin/DataTable';
 import Button from '../../components/ui/Button';
-import CreateProductForm from './CreateProductForm';
+import dynamic from 'next/dynamic';
+const CreateProductForm = dynamic(() => import('./CreateProductForm'), { ssr: false });
 
 export default async function ProductManagementServer() {
   const page = 1;

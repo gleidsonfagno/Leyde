@@ -17,8 +17,10 @@ type Props = {
   className?: string;
 };
 
-export default function ProductCard({ title, image, price, oldPrice, badge, onClick, className }: Props) {
-  return (
+import Link from 'next/link';
+
+export default function ProductCard({ title, image, price, oldPrice, badge, onClick, className, id, href }: Props & { id?: string; href?: string }) {
+  const content = (
     <article className={clsx('bg-white dark:bg-slate-800 rounded-lg overflow-hidden shadow-sm', className)} onClick={onClick} role={onClick ? 'button' : undefined}>
       <div className="relative w-full h-56 bg-slate-100 dark:bg-slate-700">
         {image ? (
@@ -38,4 +40,7 @@ export default function ProductCard({ title, image, price, oldPrice, badge, onCl
       </div>
     </article>
   );
+
+  if (href) return <Link href={href} className="block">{content}</Link>;
+  return content;
 }
