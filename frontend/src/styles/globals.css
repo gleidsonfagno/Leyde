@@ -1,11 +1,131 @@
+/* Design tokens (Apple Design System) - copied from docs/design-system/apple/tokens.css */
+:root {
+  --bg: #ffffff;
+  --surface: #f5f5f7;
+  --surface-warm: #fbfbfd;
+  --fg: #1d1d1f;
+  --fg-2: #424245;
+  --muted: #6e6e73;
+  --meta: #86868b;
+  --border: #d2d2d7;
+  --border-soft: #e8e8ed;
+  --accent: #0071e3;
+  --accent-on: #ffffff;
+  --accent-hover: #0077ed;
+  --accent-active: #0066cc;
+  --success: #16a34a;
+  --warn:    #eab308;
+  --danger:  #dc2626;
+  --font-display: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 17px;
+  --text-lg:   21px;
+  --text-xl:   28px;
+  --text-2xl:  40px;
+  --text-3xl:  56px;
+  --text-4xl:  80px;
+  --leading-body:  1.47;
+  --leading-tight: 1.05;
+  --tracking-display: -0.015em;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --section-y-desktop: 100px;
+  --section-y-tablet:  64px;
+  --section-y-phone:   40px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-pill: 980px;
+  --elev-flat:   none;
+  --elev-ring:   0 0 0 1px var(--border);
+  --elev-raised: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --focus-ring: 0 0 0 4px color-mix(in oklab, var(--accent), transparent 65%);
+  --motion-fast:   150ms;
+  --motion-base:   220ms;
+  --ease-standard: cubic-bezier(0.28, 0, 0.22, 1);
+  --container-max:            1024px;
+  --container-gutter-desktop: 22px;
+  --container-gutter-tablet:  18px;
+  --container-gutter-phone:   16px;
+}
+
 /* Tailwind base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global styles (placeholders) */
+/* Global styles using design tokens */
 html, body, #__next {
   height: 100%;
 }
 
-/* TODO: Import Design System tokens and overrides here when available */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-gutter-desktop);
+  padding-right: var(--container-gutter-desktop);
+}
+
+/* Design System utility classes (minimal set) */
+.ds-surface { background: var(--surface); }
+.ds-surface-warm { background: var(--surface-warm); }
+.ds-card { background: var(--surface); border-radius: var(--radius-lg); box-shadow: var(--elev-raised); border: 1px solid var(--border); }
+.ds-hero { background: var(--bg); padding-top: var(--section-y-desktop); padding-bottom: var(--section-y-desktop); }
+.ds-accent { color: var(--accent); }
+.ds-link { color: var(--accent); text-decoration: none; }
+.ds-muted { color: var(--muted); }
+
+/* Buttons */
+.ds-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-pill); font-weight: 600; font-family: var(--font-body); transition: background var(--motion-base) var(--ease-standard), transform var(--motion-fast); padding: 10px 18px; }
+.ds-btn:focus { box-shadow: var(--focus-ring); outline: none; }
+.ds-btn[data-variant="primary"] { background: var(--accent); color: var(--accent-on); }
+.ds-btn[data-variant="primary"]:hover { background: var(--accent-hover); }
+.ds-btn[data-variant="secondary"] { background: var(--surface); color: var(--fg); border: 1px solid var(--border); }
+.ds-btn[data-variant="ghost"] { background: transparent; color: var(--fg-2); }
+.ds-btn[data-variant="danger"] { background: var(--danger); color: #fff; }
+
+/* Card */
+.ds-card__content { padding: var(--space-4); }
+
+/* Badge */
+.ds-badge { display:inline-flex; align-items:center; padding:4px 8px; border-radius:999px; font-size:12px; background: rgba(0,0,0,0.04); color: var(--fg-2); }
+
+/* Small utilities */
+.text-fg-2 { color: var(--fg-2); }
+.text-meta { color: var(--meta); }
+.border-soft { border-color: var(--border-soft); }
+
+/* Ensure images in product cards cover and are crisp */
+.ds-img-cover { object-fit: cover; }
+
+/* Modal overrides */
+.ds-modal { border-radius: var(--radius-md); }
+
+/* Responsive adjustments for container gutters */
+@media (max-width: 1024px) {
+  .container { padding-left: var(--container-gutter-tablet); padding-right: var(--container-gutter-tablet); }
+}
+@media (max-width: 640px) {
+  .container { padding-left: var(--container-gutter-phone); padding-right: var(--container-gutter-phone); }
+}
+
+/* End of design tokens and helpers */
+
